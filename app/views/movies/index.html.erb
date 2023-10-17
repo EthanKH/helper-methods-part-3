@@ -2,6 +2,12 @@
   List of all movies
 </h1>
 
+<%= render partial: "zebra/giraffe" %>
+
+<hr>
+
+<%= render partial: "zebra/giraffe" %>
+
 <hr>
 
 <div>
@@ -44,6 +50,10 @@
 
     <td>
       <%= movie.title %>
+    </td>
+
+    <td>
+      <img src ="<%= movie.image_url %>">
     </td>
 
     <td>
