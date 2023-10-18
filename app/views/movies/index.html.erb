@@ -1,12 +1,12 @@
+
+
+<%#= render partial: "zebra/elephant", locals: { person: "Bob" } %>
+<!--
+
+<%#= render partial: "zebra/giraffe" %>-->
 <h1>
   List of all movies
 </h1>
-
-<%= render partial: "zebra/giraffe" %>
-
-<hr>
-
-<%= render partial: "zebra/giraffe" %>
 
 <hr>
 
@@ -16,7 +16,15 @@
 
 <hr>
 
-<table>
+<div class="row">
+  <% @movies.each do |movie| %>
+    <div class="col-md-3">
+      <%= render partial: "movies/movie_card", locals: { movie: movie } %>
+    </div>
+  <% end %>
+</div>
+
+<!--<table border="3">
   <tr>
     <th>
       ID
@@ -31,6 +39,14 @@
     </th>
 
     <th>
+      Image
+    </th>
+
+    <th>
+      Released on
+    </th>
+
+    <th>
       Created at
     </th>
 
@@ -42,34 +58,43 @@
     </th>
   </tr>
 
-  <% @movies.each do |movie| %>
-  <tr>
+  <%# @movies.each do |movie| %>-->
+<!--  <tr>
     <td>
-      <%= movie.id %>
-    </td>
+      <%#= movie.id %>-->
+<!--    </td>
 
     <td>
-      <%= movie.title %>
-    </td>
+      <%#= movie.title %>-->
+<!--    </td>
 
     <td>
-      <img src ="<%= movie.image_url %>">
-    </td>
+      <%#= movie.description %>-->
+<!--    </td>
 
     <td>
-      <%= movie.description %>
-    </td>
+      <%# if movie.image_url != nil%>-->
+<!--        <img src ="<%#= movie.image_url %>">-->
+      <%# else %>
+        <%#= "Sorry no image!" %>
+      <%# end %>
+<!--    </td>
 
     <td>
-      <%= time_ago_in_words(movie.created_at) %> ago
-    </td>
-    <td>
-      <%= time_ago_in_words(movie.updated_at) %> ago
-    </td>
+      <%#= movie.released_on %>-->
+<!--    </td>
 
     <td>
-      <%= link_to "Show details", movie %>
-    </td>
+      <%#= time_ago_in_words(movie.created_at) %> ago-->
+<!--    </td>
+    <td>
+      <%#= time_ago_in_words(movie.updated_at) %> ago-->
+<!--    </td>
+
+    <td>
+      <%#= link_to "Show details", movie %>-->
+<!--    </td>
   </tr>
-  <% end %>
-</table>
+  <%# end %>-->
+<!--</table>
+-->
