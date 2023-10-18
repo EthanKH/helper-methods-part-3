@@ -1,6 +1,13 @@
 class MoviesController < ApplicationController
+  before_action :set_movie, only: [:show, :edit, :update, :destroy]
+
+  def foo
+    p "hiya" * 100
+  end
+
   def new
-    @movie = Movie.new
+    # @movie = Movie.new 
+    # because of the before_action and private set_movie
   end
 
   def index
@@ -32,7 +39,8 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @movie = Movie.find(params.fetch(:id))
+    # @movie = Movie.find(params.fetch(:id))
+    # because of the before_action and private set_movie
   end
 
   def update
@@ -59,5 +67,9 @@ class MoviesController < ApplicationController
   
   def movie_params
     params.require(:movie).permit(:title, :description, :image_url, :released_on)
+  end
+
+  def set_movie
+    @movie = Movie.find(params.fetch(:id))
   end
 end
