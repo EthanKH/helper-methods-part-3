@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   end
 
   def new
-    # @movie = Movie.new 
+    @movie = Movie.new 
     # because of the before_action and private set_movie
   end
 
@@ -39,7 +39,7 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    # @movie = Movie.find(params.fetch(:id))
+    @movie = Movie.find(params.fetch(:id))
     # because of the before_action and private set_movie
   end
 
